@@ -11,15 +11,13 @@ RNA structure plays a crucial role in its function, but predicting its 3D confor
 ```
 RNA_Fold_Prediction/
 │
-├── data/                     # Scripts or examples for loading and formatting RNA data
-├── models/
-│   ├── linear_model/         # Simple linear regression model predicting coordinates
-│   └── gcn_model/            # Graph Convolutional Network for structure prediction
+├── training_data/            # Scripts or examples for loading and formatting RNA data
+├── V1.0.0_Linear/            # Simple linear regression model predicting coordinates
+│── V2.0.0_GCN/               # Graph Convolutional Network for structure prediction
 │
-├── utils/                    # Helper scripts (e.g. RMSD calculation, alignment)
-├── train.py                 # Script to train a selected model
-├── evaluate.py              # Evaluation and RMSD analysis
-├── requirements.txt         # Dependencies
+├── functions/               # Helper scripts (e.g. RMSD calculation, alignment)
+├── constants.py             # Script that contains phsyical constants
+├── error_functions.py       # Script that contains error functions
 └── README.md
 ```
 
@@ -45,38 +43,19 @@ Clone the repository and install dependencies:
 ```bash
 git clone https://github.com/jfell13/RNA_Fold_Prediction.git
 cd RNA_Fold_Prediction
-pip install -r requirements.txt
 ```
 
-Dependencies include:
+Dependencies:
 - `torch`
 - `torch_geometric`
 - `numpy`
 - `scikit-learn`
 - `scipy`
 
-## 🚀 Training
-
-To train a model:
-```bash
-python train.py --model linear  # or 'gcn'
-```
-
-## 📊 Evaluation
-
-After training, evaluate predictions using:
-```bash
-python evaluate.py --model gcn
-```
-
-Evaluation includes:
-- RMSD calculation with optional Kabsch alignment
-- Visual and numerical comparison to native coordinates
-
 ## 🧪 Example Results
 
-Sample RMSD after 500 epochs:
-- Linear Model: ~3.64 (training loss), RMSE ~2.82 Å
+Sample RMSD:
+- Linear Model: 500 epochs ~3.64 (training loss), RMSE ~2.82 Å
 - GCN Model: In progress / under refinement
 
 ## 📌 Notes
